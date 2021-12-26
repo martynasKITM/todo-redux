@@ -1,7 +1,7 @@
 import {Card, Button, ListGroupItem } from 'react-bootstrap';
 import {UncontrolledCollapse} from 'reactstrap'
 
-const TodoItem = ({todo, delet, mark}) => (
+const TodoItem = ({todo, remove, mark}) => (
 
 <ListGroupItem style={{background:"linear-gradient(to right,#4568dc, #b06ab3)"}}>
     <div className="row"  >
@@ -19,7 +19,7 @@ const TodoItem = ({todo, delet, mark}) => (
       </div>    
       <div className="col-md-5">
       <div className="ml-auto">
-        <Button color="danger" onClick={() => delet(todo.id)} style={{marginRight:'10px'}} className="ml-auto">Pašalinti</Button>
+        <Button color="danger" onClick={() => remove(todo.id)} style={{marginRight:'10px'}} className="ml-auto">Pašalinti</Button>
         <Button color="primary" onClick={() => mark(todo.id)} className="mr-auto">Užbaigti</Button>
       </div>
       </div>

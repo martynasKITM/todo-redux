@@ -1,4 +1,4 @@
-import React, { useState,Component } from 'react'
+import React, { useState } from 'react'
 import {ListGroup} from 'reactstrap'
 import TodoItem from './TodoItem';
 import {connect} from 'react-redux'
@@ -9,9 +9,6 @@ const TodoLists = (props)=>{
     const [isOpen, setIsOpen] = useState()
     const toggle = ()=>{
         setCollapse({collapse:!collapse})
-    }
-    const balControl = e => {
-        console.log(e)
     }
 
     const filterTodo = (todos, status) =>{
@@ -27,7 +24,7 @@ const TodoLists = (props)=>{
     }
 
     let {todos, markDone, status, deleteTodo} = props;
-    if(todos.length === 0) return <p>Ther are no Todo</p>
+    if(todos.length === 0) return <p>Nera ivestu uzduociu</p>
 
     let filterTodos = filterTodo(todos,status )
     return (
@@ -38,7 +35,7 @@ const TodoLists = (props)=>{
                     todo={todo} key={todo.id}
                     collap={toggle}
                     mark={markDone}
-                    delet={deleteTodo} />)}
+                    remove={deleteTodo} />)}
         </ListGroup>
     )
 }

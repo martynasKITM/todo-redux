@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Modal, Form, FormGroup } from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {addTodo} from '../../store/actions/TodoAction'
 
@@ -11,9 +11,9 @@ const Modals = (props)=>{
         description:''
     })
 
-    const toggle = ()=> {
-        setModal({modal: !modal });
-    }
+
+    const handleClose = () =>  setModal(false);
+    const handleShow = () =>  setModal(true);
 
 
     const handleChange = (e)=>{
@@ -41,22 +41,25 @@ const Modals = (props)=>{
 
     return (
         <div>
-            <Button style={{marginTop:'-65px'}} color="danger" onClick={toggle}>Nauja užduotis</Button>
-            <Modal isOpen={modal} toggle={toggle} className={props.className}>
-                <ModalHeader toggle={toggle}>Sukurti naują užduotį</ModalHeader>
-                <ModalBody>
+            <Button style={{marginTop:'-65px'}} color="danger" onClick={handleShow}>Nauja užduotis</Button>
+            <Modal show={modal} onHide={handleClose} className={props.className}>
+                <Modal.Header>Sukurti naują užduotį</Modal.Header>
+                <Modal.Body>
                     <Form onSubmit={handleSubmit}>
                         <FormGroup>
-                            <Label for="title">Pavadinimas</Label>
-                            <Input type="text" onChange={handleChange} required value={task.title} name="title" id="title" placeholder="Įveskite pavadinimą" />
+                            <Form.Label for="title">Pavadinimas</Form.Label>
+                            <Form.Control type="text" onChange={handleChange} required value={task.title} name="title" id="title" placeholder="Įveskite pavadinimą" />
                         </FormGroup>
                         <FormGroup>
-                            <Label for="description">Užduoties aprašymas</Label>
-                            <Input type="textarea" required onChange={handleChange} value={task.description} name="description" id="description" placeholder="Įveskite užduoties aprašymą" />
+                            <Form.Label for="description">Užduoties aprašymas</Form.Label>
+                            <Form.Control type="textarea" required onChange={handleChange} value={task.description} name="description" id="description" placeholder="Įveskite užduoties aprašymą" />
                         </FormGroup>
-                        <Button color="primary">Pridėti</Button>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Uždaryti
+                        </Button>
+                        <Button color="primary" type="submit">Pridėti</Button>
                     </Form>
-                </ModalBody>
+                </Modal.Body>
             </Modal>
         </div>
     );

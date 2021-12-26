@@ -1,18 +1,18 @@
 import { ADD_TODO, MARK_DONE, FILTER_TODO, REMOVE_TODO, } from "../actions/actionType";
 const init = {
     todos:[{
-        "title": "Meetup Today",
-        "description": "Today i want to meet my friend and ........... ",
+        "title": "Testas",
+        "description": "Test uzduotis ",
         "isComplete": false,
-        "id": 1563217752827
+        "id": 1234677
         },
         {
-        "title": "Done The project",
-        "description": "30 jun must be complete the project",
+        "title": "Testas 2",
+        "description": "Labai gera uzduotis",
         "isComplete": true,
-        "id": 1563217752858827
+        "id": 12345678
         }],
-    filter:'ALL'
+    filter:'VISOS'
 }
 const Todos = (state=init, action) => {
     switch (action.type) {

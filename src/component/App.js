@@ -1,6 +1,6 @@
 import Modals from './modal/Modal';
-import TopNav from './modal/TopNav';
-import TodoLists from './todo/Todos';
+import TopNav from './nav/TopNav';
+import TodoLists from './todo/TodoList';
 import './App.css'
 
 const App = ()=> {
