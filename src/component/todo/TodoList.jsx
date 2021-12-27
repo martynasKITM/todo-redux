@@ -2,20 +2,9 @@ import {ListGroup} from 'reactstrap'
 import TodoItem from './TodoItem';
 import {connect} from 'react-redux'
 import {markDone, deleteTodo} from '../../store/actions/TodoAction'
+import filterTodo from "../../utilities/filterTodo";
 
 const TodoLists = (props)=>{
-    const filterTodo = (todos, status) =>{
-        switch (status) {
-            case 'AKTYVIOS':
-                return todos.filter(todo => todo.isComplete === false);
-
-            case 'PABAIGTOS':
-                return todos.filter(todo => todo.isComplete === true);
-
-            default: return todos;
-        }
-    }
-
     let {todos, markDone, status, deleteTodo} = props;
     if(todos.length === 0) return <p>Nera ivestu uzduociu</p>
 
@@ -33,8 +22,6 @@ const TodoLists = (props)=>{
 }
 
 
-
-
 const mapDispatchToProps = state => ({
    todos:state.todos.todos,
    status:state.todos.filter
@@ -42,7 +29,6 @@ const mapDispatchToProps = state => ({
 }
 
 )
-
 
 
 export default connect(mapDispatchToProps, {markDone, deleteTodo})(TodoLists);
