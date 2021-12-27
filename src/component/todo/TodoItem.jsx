@@ -3,7 +3,7 @@ import {UncontrolledCollapse} from 'reactstrap'
 
 const TodoItem = ({todo, remove, mark}) => (
 
-<ListGroupItem style={{background:"linear-gradient(to right,#4568dc, #b06ab3)"}}>
+<ListGroupItem>
     <div className="row"  >
       <div className="col-md-7">
       <span color="primary" className="d-flex" id={`toggler${todo.id}`} style={{ marginBottom: '1rem' }}>

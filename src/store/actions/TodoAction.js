@@ -1,4 +1,4 @@
-import { ADD_TODO, MARK_DONE,FILTER_TODO, REMOVE_TODO } from "./actionType";
+import { ADD_TODO, MARK_DONE,FILTER_TODO, REMOVE_TODO } from "./types";
 
 export const addTodo = (todo) => {
     return {

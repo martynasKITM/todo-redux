@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import { Button, Modal, Form, FormGroup } from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {addTodo} from '../../store/actions/TodoAction'
 
 
-const Modals = (props)=>{
+const AddTodo = (props)=>{
     const [modal, setModal] = useState(false)
     const [task, setTask] =useState({
         title:'',
@@ -41,25 +41,25 @@ const Modals = (props)=>{
 
     return (
         <div>
-            <Button style={{marginTop:'-65px'}} color="danger" onClick={handleShow}>Nauja užduotis</Button>
+            <Button style={{marginTop:'-65px'}} variant="danger" onClick={handleShow}>Nauja užduotis</Button>
             <Modal show={modal} onHide={handleClose} className={props.className}>
                 <Modal.Header>Sukurti naują užduotį</Modal.Header>
-                <Modal.Body>
                     <Form onSubmit={handleSubmit}>
+                        <Modal.Body>
                         <FormGroup>
                             <Form.Label for="title">Pavadinimas</Form.Label>
                             <Form.Control type="text" onChange={handleChange} required value={task.title} name="title" id="title" placeholder="Įveskite pavadinimą" />
                         </FormGroup>
                         <FormGroup>
                             <Form.Label for="description">Užduoties aprašymas</Form.Label>
-                            <Form.Control type="textarea" required onChange={handleChange} value={task.description} name="description" id="description" placeholder="Įveskite užduoties aprašymą" />
+                            <Form.Control type="textarea" required onChange={handleChange} style={{ height: '100px' }} value={task.description} name="description" id="description" placeholder="Įveskite užduoties aprašymą" />
                         </FormGroup>
-                        <Button variant="secondary" onClick={handleClose}>
-                            Uždaryti
-                        </Button>
+                        </Modal.Body>
+                        <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>Uždaryti</Button>
                         <Button color="primary" type="submit">Pridėti</Button>
+                        </Modal.Footer>
                     </Form>
-                </Modal.Body>
             </Modal>
         </div>
     );
@@ -67,4 +67,4 @@ const Modals = (props)=>{
 
 
 
-export default connect(null, {addTodo}) (Modals);
+export default connect(null, {addTodo}) (AddTodo);

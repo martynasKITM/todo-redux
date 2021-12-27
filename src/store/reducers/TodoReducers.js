@@ -1,4 +1,9 @@
-import { ADD_TODO, MARK_DONE, FILTER_TODO, REMOVE_TODO, } from "../actions/actionType";
+import { ADD_TODO, MARK_DONE, FILTER_TODO, REMOVE_TODO, } from "../actions/types";
+
+const removeTodo = (todos, id)=> {
+    return todos = todos.filter(todo => todo.id !== id)
+}
+
 const init = {
     todos:[{
         "title": "Testas",
@@ -15,6 +20,7 @@ const init = {
     filter:'VISOS'
 }
 const Todos = (state=init, action) => {
+    console.log(state.todos)
     switch (action.type) {
         case ADD_TODO : {
             let todos = [...state.todos];
@@ -55,10 +61,8 @@ const Todos = (state=init, action) => {
 
         default: return state;
     }
+
 }
 
 export default Todos;
 
-function removeTodo(todos, id) {
-    return todos = todos.filter(todo => todo.id !== id)
-}

@@ -1,4 +1,4 @@
-import Modals from './modal/Modal';
+import Modals from './todo/AddTodo';
 import TopNav from './nav/TopNav';
 import TodoLists from './todo/TodoList';
 import './App.css'
